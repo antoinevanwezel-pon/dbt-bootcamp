@@ -1,6 +1,14 @@
+/*
+-- This is the old code, but better with the source function, so we keep it here for reference
 WITH raw_listings AS (
     SELECT * FROM AIRBNB.RAW.RAW_LISTINGS
 )
+*/
+
+WITH raw_listings AS (
+    SELECT * FROM {{ source('airbnb', 'listings') }}
+)
+
 SELECT
     id AS listing_id,
     listing_url,
